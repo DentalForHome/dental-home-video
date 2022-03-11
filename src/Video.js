@@ -96,13 +96,14 @@ class Video extends Component {
 			this.connectToSocketServer()
 		})
 	}
-
 	getUserMedia = () => {
 		if ((this.state.video && this.videoAvailable) || (this.state.audio && this.audioAvailable)) {
 			navigator.mediaDevices.getUserMedia({ video: this.state.video, audio: this.state.audio })
 				.then(this.getUserMediaSuccess)
 				.then((stream) => {})
 				.catch((e) => console.log(e))
+				console.log(this.state.audio)
+
 		} else {
 			try {
 				let tracks = this.localVideoref.current.srcObject.getTracks()
@@ -453,7 +454,7 @@ class Video extends Component {
 		}
 		return (
 			<div>
-				{this.state.askForUsername === true ?
+				{/* {this.state.askForUsername === true ?
 					<div>
 						<div style={{background: "white", width: "30%", height: "auto", padding: "20px", minWidth: "400px",
 								textAlign: "center", margin: "auto", marginTop: "50px", justifyContent: "center"}}>
@@ -467,7 +468,7 @@ class Video extends Component {
 								borderStyle: "solid",borderColor: "#bdbdbd",objectFit: "fill",width: "60%",height: "30%"}}></video>
 						</div>
 					</div>
-					:
+					: */}
 					<div>
 						<div className="btn-down" style={{ backgroundColor: "whitesmoke", color: "whitesmoke", textAlign: "center" }}>
 							<IconButton style={{ color: "#424242" }} onClick={this.handleVideo}>
@@ -513,21 +514,21 @@ class Video extends Component {
 						</Modal>
 
 						<div className="container">
-							<div style={{ paddingTop: "20px" }}>
+							{/* <div style={{ paddingTop: "20px" }}>
 								<Input value={window.location.href} disable="true"></Input>
 								<Button style={{backgroundColor: "#3f51b5",color: "whitesmoke",marginLeft: "20px",
 									marginTop: "10px",width: "120px",fontSize: "10px"
 								}} onClick={this.copyUrl}>Copy invite link</Button>
-							</div>
+							</div> */}
 
-							<Row id="main" className="flex-container" style={{ margin: 0, padding: 0 }}>
+							<Row id="main" className="flex-container" style={{ margin: 0, padding: 0,height:`90vh` }}>
 								<video id="my-video" ref={this.localVideoref} autoPlay muted style={{
 									borderStyle: "solid",borderColor: "#bdbdbd",margin: "10px",objectFit: "fill",
 									width: "100%",height: "100%"}}></video>
 							</Row>
 						</div>
 					</div>
-				}
+				{/* } */}
 			</div>
 		)
 	}

@@ -33,7 +33,7 @@
     "xss": "^1.0.8"
   },
   "scripts": {
-    "start": "concurrently  \"nodemon app.js\"  \" react-scripts start \"",
+    "start": "concurrently  \"nodemon app.js\" \"react-scripts start\"",
     "server": "NODE_ENV=production nodemon app.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
