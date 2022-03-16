@@ -385,7 +385,7 @@ class Video extends Component {
 			let tracks = this.localVideoref.current.srcObject.getTracks()
 			tracks.forEach(track => track.stop())
 		} catch (e) {}
-		window.location.href = "/"
+		window.close()
 	}
 
 	openChat = () => this.setState({ showModal: true, newmessages: 0 })
