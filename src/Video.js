@@ -96,6 +96,7 @@ class Video extends Component {
 			this.connectToSocketServer()
 		})
 	}
+	
 	getUserMedia = () => {
 		if ((this.state.video && this.videoAvailable) || (this.state.audio && this.audioAvailable)) {
 			navigator.mediaDevices.getUserMedia({ video: this.state.video, audio: this.state.audio })
@@ -432,7 +433,10 @@ class Video extends Component {
 		})
 	}
 
-	connect = () => this.setState({ askForUsername: false }, () => this.getMedia())
+	componentDidMount(){
+		this.setState({ askForUsername: false }, () => this.getMedia())
+	}
+	
 
 	isChrome = function () {
 		let userAgent = (navigator && (navigator.userAgent || '')).toLowerCase()
